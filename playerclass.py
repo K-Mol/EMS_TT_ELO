@@ -17,7 +17,7 @@ class player:
     def wins(self):
         return (self.wins + self.losses)
     
-   def gamewon(self, other):
+   def beat(self, other):
         #do the stuff to win a game here
         
         #calc probabilities of both players winning
@@ -38,37 +38,9 @@ class player:
 def Probability(elo1, elo2):
     return 1.0 * 1.0 / (1 + 1.0 * math.pow(10, 1.0 * (rating1 - rating2) / 400))
   
-  
-# Function to calculate Elo rating
-# K is a constant.
-# d determines whether
-# Player A wins or Player B. 
-def EloRating(winner, loser, K):
-   
-  
-    # To calculate the Winning
-    # Probability of Player B
-    P2 = Probability(winner.rating, loser.rating)
-    P1 = 1 - P2
-
-    winner.rating += (K * (1 - P1))
-    loser.rating += (K * (0 - P2))
-      
-    print("Updated Ratings:-")
-    print(winner.name, ": ",  round(winner.rating, 6), loser.name, ": ",  round(loser.rating, 6))
-    
-
-    
-def main():  
-    Will = player("Will", "1200")
-    Louie = player("Louie", "1000")
-    k = 30
-    EloRating(Louie, Will, k)
-
 
 if __name__ == "__main__":
-    main()
+    print("Stop running this file!!!")
 
 # This code is contributed by
-# Louie Bond, Sam Allix
-
+# Louie Bond
