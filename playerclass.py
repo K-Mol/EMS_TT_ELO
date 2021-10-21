@@ -39,7 +39,7 @@ class player:
 
 # Function to calculate the Probability
 def Probability(elo1, elo2):
-    return 1.0 * 1.0 / (1 + 1.0 * math.pow(10, 1.0 * (rating1 - rating2) / 400))
+    return 1.0 * 1.0 / (1 + 1.0 * math.pow(10, 1.0 * (elo1 - elo2) / 400))
   
 
 if __name__ == "__main__":
