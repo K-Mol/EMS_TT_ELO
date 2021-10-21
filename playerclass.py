@@ -26,7 +26,7 @@ class player:
         
         #calc elo gain/loss
         elo_gain = (Max_Elo_Gain * (1 - P1))
-        elo_loss = (Max_Elo_gain * (0 - P2))
+        elo_loss = (Max_Elo_Gain * (0 - P2))
         
         #update values
         self.elo = elo_gain
