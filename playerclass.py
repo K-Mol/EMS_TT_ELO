@@ -1,5 +1,5 @@
 # Python 3 program for Elo Rating
-import math
+import math, json
 
 Max_Elo_Gain = 50
 
@@ -33,6 +33,9 @@ class player:
         other.elo = elo_loss
         self.wins += 1
         other.losses += 1
+        
+    def export(self):
+        return json.dumps(self.__dict__)
 
 # Function to calculate the Probability
 def Probability(elo1, elo2):
