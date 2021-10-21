@@ -17,7 +17,7 @@ class player:
     def wins(self):
         return (self.wins + self.losses)
     
-   def beat(self, other):
+    def beat(self, other):
         #do the stuff to win a game here
         
         #calc probabilities of both players winning
