@@ -12,7 +12,7 @@ class player:
         self.wins = 0
         self.losses = 0
         self.id = player._id
-        player._id
+        player._id += 1
         
     def wins(self):
         return (self.wins + self.losses)
