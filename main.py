@@ -17,19 +17,19 @@ def Probability(rating1, rating2):
 # K is a constant.
 # d determines whether
 # Player A wins or Player B. 
-def EloRating(player1, player2, K):
+def EloRating(winner, loser, K):
    
   
     # To calculate the Winning
     # Probability of Player B
-    P2 = Probability(player1.rating, player2.rating)
+    P2 = Probability(winner.rating, loser.rating)
     P1 = 1 - P2
 
-    player1.rating += (K * (1 - P1))
-    player2.rating += (K * (0 - P2))
+    winner.rating += (K * (1 - P1))
+    loser.rating += (K * (0 - P2))
       
     print("Updated Ratings:-")
-    print(player1.name, ": ",  round(player1.rating, 6), player2.name, ": ",  round(player2.rating, 6))
+    print(winner.name, ": ",  round(winner.rating, 6), loser.name, ": ",  round(loser.rating, 6))
     
 
     
