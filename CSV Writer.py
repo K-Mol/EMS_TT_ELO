@@ -1,4 +1,3 @@
-import random
 import csv
 
 def RobustIntInput(Text):
@@ -27,6 +26,7 @@ def CalculatingRatingChange(Player1Elo,Player2Elo,Results,KVal = 25):
     return (round(Player1Elo + Player1RatingChange),round(Player2Elo + Player2RatingChange))
 
 def CheckingIfWorks():
+    import random
     ListOfPlayers = [(1000,random.randint(1,100)) for _ in range(10)]
 
     print(ListOfPlayers)
@@ -114,7 +114,11 @@ def ClearingCSV():
     writer = csv.writer(f)
 
     for Row in Rows:
+        if Row[0] == "Andrew Hanneman":
+            writer.writerow([Row[0], 1002])
+            continue
         writer.writerow([Row[0], 1000])
+        
     
     f.close()
 
