@@ -85,9 +85,13 @@ def ChangingCSV():
     NewElo = CalculatingRatingChange(Player1[1],Player2[1],Results)
 
     print(NewElo)
-
-    Rows[Player1Index][1] = NewElo[0]
-    Rows[Player2Index][1] = NewElo[1]
+    
+    #Headers = ["Player Name", "Elo", "Total Wins", "Total Losses", " Total Games Played", "Win Percentage"]
+    Player1NewRow = [Rows[Player1Index][0],NewElo[0], Rows[Player1Index][2]+sum(Results), Rows[Player1Index][3]+len(Results)-sum(Results), Rows[Player1Index][4] + len(Results), 100* (Rows[Player1Index][2]+sum(Results)/Rows[Player1Index][4] +len(Results))]
+    Player2NewRow = [Rows[Player2Index][0],NewElo[1], Rows[Player2Index][3]+len(Results)-sum(Results),vRows[Player2Index][3]-sum(Results), Rows[Player1Index][4] + len(Results), 100* ( Rows[Player2Index][3]+len(Results)-sum(Results)/Rows[Player2Index][4] +len(Results))]
+    
+    Rows[Player1Index] = Player1NewRow
+    Rows[Player2Index] = Player2NewRow 
 
     f = open('Players.csv', 'w')
 
@@ -115,13 +119,17 @@ def ClearingCSV():
 
     for Row in Rows:
         if Row[0] == "Andrew Hanneman":
-            writer.writerow([Row[0], 1002])
+            writer.writerow([Row[0], 1002] + [0 for _ in range(len(Rows[0]))])
             continue
-        writer.writerow([Row[0], 1000])
+        writer.writerow([Row[0], 1000] + [0 for _ in range(len(Rows[0]))])
         
-    
     f.close()
 
-
+def InitialisingCSV(Headers = ["Player Name", "Elo", "Total Wins", "Total Losses", " Total Games Played", "Win Percentage"]):
+    f = open('Players.csv', 'w')
+    writer = csv.writer(f)
+    writer.writerow(Headers)
+    f.close()
+    
 print(CalculatingRatingChange(1000,1000,[1]))
 ChangingCSV()
